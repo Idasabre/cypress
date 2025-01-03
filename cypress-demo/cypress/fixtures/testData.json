@@ -1,0 +1,19 @@
+{
+    "user": {
+      "name": "Ida Sabre",
+      /* "email": "user_123@gmail.com",
+      "password": "randomPassword123",
+      "phone": "+6019-1234567", */
+      "address": {
+        "firstName": "Ida",
+        "lastName": "Sabre",
+        "company": "Company Ltd.",
+        "address1": "89 Main Street",
+        "address2": "Rentak Perdana",
+        "country": "Singapore",
+        "state": "Selangor",
+        "city": "Puncak Alam",
+        "zipcode": "12300"
+      }
+    }
+  }

@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-31T09:43:02.093Z",
+    "end": "2024-12-31T09:43:56.642Z",
+    "duration": 54549,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "932ce22f-39cc-42cf-b324-504391107d95",
+      "title": "",
+      "fullFile": "cypress\\e2e\\assignment\\assignment_26Dec.cy.js",
+      "file": "cypress\\e2e\\assignment\\assignment_26Dec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "457bb0aa-47a1-4312-9536-1504b154ce43",
+          "title": "Automation Exercise Website - Signup, Login, add to cart, logout and delete",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should launch the url",
+              "fullTitle": "Automation Exercise Website - Signup, Login, add to cart, logout and delete should launch the url",
+              "timedOut": null,
+              "duration": 8093,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\n//cy.url().should('eq', 'https://automationexercise.com/'); \ncy.get('[alt=\"Website for automation practice\"]').should('be.visible');\ncy.xpath('//h2[contains(text(),\"Features Items\")]').should('exist');\n//cy.screenshot();",
+              "err": {},
+              "uuid": "507030ec-5656-42c5-a3c4-f95816d94aeb",
+              "parentUUID": "457bb0aa-47a1-4312-9536-1504b154ce43",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should perform valid signup",
+              "fullTitle": "Automation Exercise Website - Signup, Login, add to cart, logout and delete should perform valid signup",
+              "timedOut": null,
+              "duration": 20439,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "randomEmail = `user_${Math.random().toString(36).substring(2, 8)}@gmail.com`;\nconsole.log('Generated Email:', randomEmail); //log to console \ncy.log('Generated Email:', randomEmail); //log to cypress dashboard  \n// Navigate to the signup/login page\ncy.visit('/');\ncy.get('a[href=\"/login\"]').click();\ncy.url().should('include', '/login');\ncy.contains('New User Signup!').should('be.visible');\n// Fill in signup details\ncy.get('input[data-qa=\"signup-name\"]').type(name);\ncy.get('input[data-qa=\"signup-email\"]').type(randomEmail);\ncy.get('button[type=\"submit\"]').contains('Signup').click();\ncy.contains('Enter Account Information').should('be.visible');\n// Fill in account information\ncy.get(`#uniform-id_gender2 input[value=\"${gender}\"]`).check();\ncy.get('#password').type(password);\ncy.get('[data-qa=\"days\"]').select(`${day}`);\ncy.get('#months').select(`${months}`);\ncy.get('[name=\"years\"]').select(`${year}`);\ncy.get('[name=\"newsletter\"]').check();\n// Fill in address information\ncy.get('#first_name').type(`${first_name}`);\ncy.get('#last_name').type(`${last_name}`);\ncy.get('#company').type(`${company}`);\ncy.get('#address1').type(`${address1}`);\ncy.get('#address2').type(`${address2}`);\ncy.get('#country').select(`${country}`);\ncy.get('#state').type(`${state}`);\ncy.get('#city').type(`${city}`);\ncy.get('#zipcode').type(`${zipcode}`);\n//cy.get('#mobile_number').type(randomPhoneNo);\ncy.get('#mobile_number').type(randomPhoneNo());\ncy.screenshot('signup');\n// Submit the signup form\ncy.get('[data-qa=\"create-account\"]').click();\ncy.get('[data-qa=\"account-created\"]').should('have.text', 'Account Created!').then(() => {\n  cy.get('[data-qa=\"continue-button\"]').click();\n});",
+              "err": {},
+              "uuid": "4923f734-35c5-4758-a0f7-afa74c49e811",
+              "parentUUID": "457bb0aa-47a1-4312-9536-1504b154ce43",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login with the generated email, validate attributes, add items to cart, delete one item from cart and logout",
+              "fullTitle": "Automation Exercise Website - Signup, Login, add to cart, logout and delete should login with the generated email, validate attributes, add items to cart, delete one item from cart and logout",
+              "timedOut": null,
+              "duration": 9807,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('button[type=\"submit\"]').contains('Login').should('be.visible').then(loginBtn => {\n  // Log in with the buffered email\n  cy.get('input[data-qa=\"login-email\"]').type(randomEmail);\n  cy.get('input[data-qa=\"login-password\"]').type(password);\n  cy.wrap(loginBtn).click();\n  // Verify successful login \n  cy.contains(`Logged in as ${name}`).should('be.visible');\n  cy.get('a[href=\"/logout\"]').contains(\"Logout\").should('exist');\n  cy.get('[href=\"/delete_account\"]').contains(\" Delete Account\").should('exist');\n  /* // Add items to cart by looping through the array of product names\n  productNames.forEach((productName) => {\n    cy.contains('.productinfo.text-center p', `${productName}`)\n      .siblings('a')\n      .contains('Add to cart')\n      .eq(0)  // eq(0) = first element found\n      .click(); \n        cy.contains('Continue Shopping').click();\n  });    \n  //go to cart\n  cy.get('li a[href=\"/view_cart\"]').click(); */\n  // Add items to cart by looping through the array of product names and go to cart from popup element\n  cy.get('.productinfo.text-center p').should('be.visible').then(prod => {\n    productNames.forEach((productName, index) => {\n      cy.log('Product #: ' + index);\n      cy.wrap(prod).contains(`${productName}`).siblings('a.btn.btn-default.add-to-cart').click();\n      if (index === productNames.length - 1) {\n        cy.contains('View Cart').click();\n      } else {\n        cy.contains('Continue Shopping').click();\n      }\n    });\n  });\n  //delete item based on product index\n  cy.get('#cart_info_table tbody tr').contains('td.cart_description h4 a', productNames[0]).should('be.visible').parents('tr').find('.cart_delete .cart_quantity_delete').click();\n  // Verify if the product is deleted, and check if the table row disappears\n  cy.contains(productNames[0]).should('not.exist');\n  //logout\n  cy.get('a[href=\"/logout\"]').contains(\"Logout\").click();\n  cy.url().should('include', '/login');\n});",
+              "err": {},
+              "uuid": "62f8dc48-0663-4862-8528-e758e0c5209d",
+              "parentUUID": "457bb0aa-47a1-4312-9536-1504b154ce43",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login and delete account",
+              "fullTitle": "Automation Exercise Website - Signup, Login, add to cart, logout and delete should login and delete account",
+              "timedOut": null,
+              "duration": 15976,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('button[type=\"submit\"]').contains('Login').should('be.visible').then(loginBtn => {\n  // Log in with the buffered email\n  cy.get('input[data-qa=\"login-email\"]').type(randomEmail);\n  cy.get('input[data-qa=\"login-password\"]').type(password);\n  cy.wrap(loginBtn).click();\n  cy.contains(`Logged in as ${name}`).should('be.visible');\n  //delete account\n  cy.get('a[href=\"/delete_account\"]').click();\n  cy.get('.col-sm-9.col-sm-offset-1').should('be.visible').then(deleteAcc => {\n    const deleteAccTxt = deleteAcc.text(); //const deleteAccTxt = cy.get('.col-sm-9.col-sm-offset-1').text();    this wont work as text() is a jquery function and it should be used after promise is resolved by .then() (cy.get is resolved first only can get text()) as non cypress command cannot resolve promise by themselve. all cypress command resolve promise by themselve\n    if (deleteAccTxt.includes('Your account has been permanently deleted!')) {\n      cy.log(deleteAccTxt);\n      cy.get('[data-qa=\"continue-button\"]').click();\n      // Verify account is deleted\n      cy.get('a[href=\"/login\"]').click();\n      cy.get('input[data-qa=\"login-email\"]').type(randomEmail);\n      cy.get('input[data-qa=\"login-password\"]').type(password);\n      cy.get('button[type=\"submit\"]').contains('Login').click();\n      // Verify error message\n      cy.contains('Your email or password is incorrect!').should('be.visible');\n    } else {\n      cy.log('Account deleted page content is not as expected');\n    }\n  });\n});",
+              "err": {},
+              "uuid": "4e5de1a2-460c-41b9-aec8-57bfc1a39aed",
+              "parentUUID": "457bb0aa-47a1-4312-9536-1504b154ce43",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "507030ec-5656-42c5-a3c4-f95816d94aeb",
+            "4923f734-35c5-4758-a0f7-afa74c49e811",
+            "62f8dc48-0663-4862-8528-e758e0c5209d",
+            "4e5de1a2-460c-41b9-aec8-57bfc1a39aed"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54315,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
