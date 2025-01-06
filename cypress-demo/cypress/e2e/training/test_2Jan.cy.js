@@ -7,6 +7,26 @@ then proceed with logout as a 1 functionality
 then proceed with delete as another functionality
 
 getting element through table <tr> <td>
+
+2/1/2025
+{timeout=1000} to wait some times to load the element
+cy.get('[alt="Website for automation practice"],{timeout=1000}').should('be.visible');
+
+cy.invoke('removeAttr', 'target') - 
+
+deal with hidden element , need to click {force:true} firs then only type DOM - type="hidden"
+eg.
+cy.get('.class').click({force:true}) or cy.get('.class').click({force:true}).type('abc',{force:true}) //but we wont see it is typing from the UI as it is hidden
+
+to show hidden element use .invoke(show) call jquery method to show the element
+
+scoll the page
+.scrollIntoView()
+
+explore
+.trigger()
+
+.children()
 */
 
 describe('Automation Exercise Website - Signup, Login, add to cart, logout and delete', () => {

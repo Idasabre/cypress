@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-with-report-assignment_26Dec": "npx cypress run --spec 'cypress/e2e/assignment/assignment_26Dec.cy.js' --headed --reporter mochawesome && npx mochawesome-report-generator cypress/reports/*.json"
   },
   "author": "",
   "license": "ISC",

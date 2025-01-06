@@ -1,9 +1,15 @@
 {
-    "user": {
+  "loginData": {
+    "email": "user_123@gmail.com",
+    "password": "Qwerty@1234"
+  },
+  "signupData": {
       "name": "Ida Sabre",
-      /* "email": "user_123@gmail.com",
-      "password": "randomPassword123",
-      "phone": "+6019-1234567", */
+      "gender": "Mrs",
+      "day":  "4",
+      "months":  "February",
+      "year":  "1990",
+      "phone": "+6019-1234567", 
       "address": {
         "firstName": "Ida",
         "lastName": "Sabre",
@@ -15,5 +21,11 @@
         "city": "Puncak Alam",
         "zipcode": "12300"
       }
-    }
-  }
+  },
+  "productNames": [
+    "Blue Top",
+    "Men Tshirt",
+    "Fancy Green Top"
+  ]
+}
+ 

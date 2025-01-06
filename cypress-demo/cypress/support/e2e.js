@@ -14,5 +14,12 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import testData from '../fixtures/testData.json'; //or const testData = require('../fixtures/testData.json');
+Cypress.testData = testData;    //global property
 import './commands';
+import './randomGen';
+import './signup';
+import './login';
+import './cart';  
+import './deleteAcc';     
 import 'cypress-xpath';
