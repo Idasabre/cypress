@@ -20,6 +20,8 @@ import './commands';
 import './randomGen';
 import './signup';
 import './login';
-import './cart';  
+import './js_cart.js';
+import './js_checkout.js';
 import './deleteAcc';     
 import 'cypress-xpath';
+

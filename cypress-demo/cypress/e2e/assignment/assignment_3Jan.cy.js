@@ -1,4 +1,4 @@
-/* Modular Test Suite Using Cypress: Leverage cypress/fixtures/testData.json and support/customCommands.js for Improved Test Management */
+/* Modular Test Suite Using Cypress command: Leverage cypress/fixtures/testData.json and support/customCommands.js for Improved Test Management */
 
 describe('Modular Test Suite Using Cypress - 3 Jan 2025', () => {
     it('should be able to signup, login with generated email, manage shopping cart and delete account', () => {

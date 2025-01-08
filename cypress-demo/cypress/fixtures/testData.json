@@ -26,6 +26,29 @@
     "Blue Top",
     "Men Tshirt",
     "Fancy Green Top"
-  ]
+  ],
+  "_comment": "users is as an array of objects. Directly iterable with forEach",
+  "users": [
+    {
+      "type": "valid",
+      "email": "user_123@gmail.com",
+      "password": "Qwerty@1234"
+    },
+    {
+      "type": "invalid",
+      "email": "user_456@gmail.com",
+      "password": "password456"
+    }
+  ],
+  "_comment": "userss as an object, so when call in main file for iteraton, need to convert to array first by object.values",
+  "userss": {
+  "validUser": {
+    "email": "user_123@gmail.com",
+    "password": "Qwerty@1234"
+  },
+  "invalidUser": {
+    "email": "user_456@gmail.com",
+    "password": "password456"
+  }
+  }
 }
- 
