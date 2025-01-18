@@ -1,11 +1,12 @@
 const { defineConfig } = require("cypress");
+const { downloadFile } = require('cypress-downloadfile/lib/addPlugin')
 
 module.exports = defineConfig({
   e2e: {
     screenshotsFolder: 'cypress/screenshots',
     screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
-      //
+      on('task',{downloadFile})
       },
     baseUrl : "https://automationexercise.com/",
     chromeWebSecurity: false,
@@ -21,5 +22,6 @@ module.exports = defineConfig({
       embeddedScreenshots: true, // Embed screenshots in HTML
       inlineAssets: true,           // Embed screenshots and other assets in the report
     },
+    //downloadsFolder: 'cypress/downloads'
   },
 }); 

@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-17T07:12:26.301Z",
+    "end": "2025-01-17T07:12:32.449Z",
+    "duration": 6148,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "360b6e12-da14-4123-a913-4b2322abd1dc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\assignment\\17012025\\fileDownload2.cy.js",
+      "file": "cypress\\e2e\\assignment\\17012025\\fileDownload2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a7b4ecc-8523-4b41-bcc5-22287ff5bd2d",
+          "title": "File Download Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Downloads a file successfully",
+              "fullTitle": "File Download Test Downloads a file successfully",
+              "timedOut": null,
+              "duration": 3448,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the page with the download link\ncy.visit('https://practice.expandtesting.com/download');\n// Specify the file URL and the path where it should be saved\nconst fileUrl = 'https://practice.expandtesting.com/download/1737096551544_testfile.txt'; // The file URL\nconst savePath = 'cypress/downloads/test1.txt'; // Ensure the file extension matches the file type\n// Use the downloadFile command to download the file\ncy.downloadFile(fileUrl, savePath, error => {\n  if (error) {\n    cy.log('Download failed: ' + error);\n  } else {\n    cy.log('Download successful!');\n  }\n});\n// Verify the file is downloaded by checking the file existence in the downloads folder\ncy.readFile(savePath).should('exist');",
+              "err": {
+                "message": "CypressError: `cy.task('downloadFile')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\Users\\user\\Documents\\Automation\\Cypress\\git-repo\\cypress\\cypress-demo\\cypress.config.js\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('downloadFile')` failed with the following error:\n\nThe 'task' event has not been registered in the setupNodeEvents method. You must register it before using cy.task()\n\nFix this in your setupNodeEvents method here:\nC:\\Users\\user\\Documents\\Automation\\Cypress\\git-repo\\cypress\\cypress-demo\\cypress.config.js\n\nhttps://on.cypress.io/api/task\n    at <unknown> (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:135115:72)\n    at tryCatcher (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://practice.expandtesting.com/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress-demo/./node_modules/cypress-downloadfile/lib/downloadFileCommand.js:5:0)",
+                "diff": null
+              },
+              "uuid": "36d00c48-613c-43b6-8061-fb2515f2e4fb",
+              "parentUUID": "9a7b4ecc-8523-4b41-bcc5-22287ff5bd2d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "36d00c48-613c-43b6-8061-fb2515f2e4fb"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3448,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

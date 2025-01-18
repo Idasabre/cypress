@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-17T06:24:11.124Z",
+    "end": "2025-01-17T06:24:18.153Z",
+    "duration": 7029,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "650eb441-078a-4e92-9a74-457ab53a8aac",
+      "title": "",
+      "fullFile": "cypress\\e2e\\assignment\\17012025\\fileUpload.cy.js",
+      "file": "cypress\\e2e\\assignment\\17012025\\fileUpload.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "81fd4e2d-05aa-4569-b035-cc17b9f4174c",
+          "title": "File Upload Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Uploads a file successfully",
+              "fullTitle": "File Upload Test Uploads a file successfully",
+              "timedOut": null,
+              "duration": 3452,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the file upload page\ncy.visit('https://practice.expandtesting.com/upload');\n// Define the file path (relative to the cypress/fixtures folder)\nconst filePath = 'cypress/fixtures/testUploadFile.txt'; // Ensure this file is inside the 'cypress/fixtures' folder\n// Verify file content before upload (optional)\n//cy.readFile(`${filePath}`).should('exist').and('include', 'test upload');\n//cy.readFile(`${filePath}`).its('name').should('eq','testUploadFile');\n// Upload the file\ncy.get('input[type=\"file\"]').selectFile(`${filePath}`);\n// Submit the upload (if there's a button to submit)\ncy.get('button[type=\"submit\"]').click();\n// Verify the upload success message or behavior\ncy.contains('File uploaded successfully').should('be.visible');",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Assignment to constant variable.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Assignment to constant variable.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n    at fileValidation (https://practice.expandtesting.com/upload:285:52)\n    at HTMLInputElement.onchange (https://practice.expandtesting.com/upload:239:52)",
+                "diff": null
+              },
+              "uuid": "ec79d2dd-1ec1-40f1-944d-9523350eb69f",
+              "parentUUID": "81fd4e2d-05aa-4569-b035-cc17b9f4174c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ec79d2dd-1ec1-40f1-944d-9523350eb69f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3452,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

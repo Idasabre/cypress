@@ -24,3 +24,6 @@ import './js_cart.js';
 import './js_checkout.js';
 import './deleteAcc';     
 import 'cypress-xpath';
+import 'cypress-file-upload'; 
+import 'cypress-downloadfile/lib/downloadFileCommand';
+
